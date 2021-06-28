@@ -20,7 +20,7 @@ namespace FamousQuoteQuiz.Controllers
             this._userService = userService;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -36,7 +36,7 @@ namespace FamousQuoteQuiz.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] UserDataModel data)
         {
@@ -52,7 +52,7 @@ namespace FamousQuoteQuiz.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UserDataModel data)
         {
@@ -68,7 +68,7 @@ namespace FamousQuoteQuiz.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] string userId)
         {

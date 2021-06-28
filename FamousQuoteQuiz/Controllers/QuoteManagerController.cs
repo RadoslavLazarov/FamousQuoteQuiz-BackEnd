@@ -19,7 +19,7 @@ namespace FamousQuoteQuiz.Controllers
             this._quoteManagerService = quoteManagerService;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -35,7 +35,7 @@ namespace FamousQuoteQuiz.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] QuoteDataModel data)
         {
@@ -51,7 +51,7 @@ namespace FamousQuoteQuiz.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] QuoteDataModel data)
         {
@@ -67,7 +67,7 @@ namespace FamousQuoteQuiz.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public async Task<IActionResult> Delete([FromQuery] int quoteId)
         {
