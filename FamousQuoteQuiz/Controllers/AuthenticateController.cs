@@ -107,6 +107,9 @@ namespace FamousQuoteQuiz.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
+            var newUser = await _userManager.FindByNameAsync(model.Username);
+
+            await this._userManager.AddToRoleAsync(newUser, "User");
 
             if (!result.Succeeded)
             {
